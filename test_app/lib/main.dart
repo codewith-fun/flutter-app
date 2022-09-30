@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Screen2()));
           },
-          child: const Text('GO TO SCREEN 2', style: TextStyle(color: Colors.black),),
+          child: const Text('next screen 2', style: TextStyle(color: Colors.black),),
           
         ),
       ),
@@ -57,7 +57,7 @@ class _Screen2State extends State<Screen2> {
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()));
 
           },
-          child: const Text('GO TO HOME',style: TextStyle(color: Colors.white),),
+          child: const Text('back on first',style: TextStyle(color: Colors.white),),
         ),
       ),
     );
