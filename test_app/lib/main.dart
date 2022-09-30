@@ -1,76 +1,65 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
+/// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      debugShowCheckedModeBanner: false,
-      debugShowMaterialGrid: false,
+       home: Home(),
+       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
-  final String title;
-
+class Home extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-  
-      _counter++;
-    });
-  }
-
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
-   
-        title: Text(widget.title),
-      ),
+          title: const Text('Navigate to a new screen on Button click'),
+            backgroundColor: Colors.blueAccent),
       body: Center(
-        
-        child: Column(
+        child: TextButton(
           
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Screen2()));
+          },
+          child: const Text('GO TO SCREEN 2', style: TextStyle(color: Colors.black),),
+          
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+class Screen2 extends StatefulWidget {
+  @override
+  _Screen2State createState() => _Screen2State();
+}
+
+class _Screen2State extends State<Screen2> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title: const Text('Navigate to Previous'),
+          backgroundColor: Colors.blueAccent),
+      body: Center(
+        child: TextButton(
+      
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()));
+
+          },
+          child: const Text('GO TO HOME',style: TextStyle(color: Colors.white),),
+        ),
+      ),
     );
   }
 }
