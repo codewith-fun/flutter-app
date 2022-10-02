@@ -10,15 +10,32 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0.0,
-      shape: ContinuousRectangleBorder(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(80.0),
-          topRight: Radius.circular(80.0),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/login.png'),fit: BoxFit.cover)),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: [
+            Container(
+                padding: EdgeInsets.only( left: 0,top: 120),
+                child:
+                 Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Container(
+                       child: Image.asset('assets/ic_logo.png'),
+                       alignment: Alignment.center,
+                     )
+                   ],
+                 )
+
+            ),
+            InputData(context)
+          ],
         ),
       ),
-
     );
   }
 
@@ -27,17 +44,30 @@ class _LoginState extends State<Login> {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.5,left: 20,right: 20),
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.4,left: 20,right: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      Text("Login",style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 33,
+                          fontWeight: FontWeight.w700
+                      )),
+                      Text("Sign in to continue.",style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontWeight: FontWeight.normal
+                      )),
+                      SizedBox(height: 10),
+
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Please enter your email',
-                          fillColor: Colors.grey.shade100,
+                          fillColor: Colors.grey.shade200,
                           filled: true,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(15),
                           )
                         ),
                       ),
@@ -46,56 +76,48 @@ class _LoginState extends State<Login> {
                         obscureText: true,
                         decoration: InputDecoration(
                             hintText: 'Please enter your password',
-                            fillColor: Colors.grey.shade100,
+                            fillColor: Colors.grey.shade200,
                             filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
                             )
                         ),
                       ),
                       SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
                       children:  [
-                        Text("Sign In",
+                        TextButton(onPressed: (){
+
+                        },
+                          child:  new TextButton(onPressed: (){
+                            Navigator.pushNamed(context, 'register');
+                          }, child: Text("Sign In",
                           style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
+                              color: Colors.white,
                               fontWeight: FontWeight.w700
                           ),
+
                         ),
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Color(0xff4c9078),
-                          child: IconButton(
-                              onPressed:() {},
-                              icon: Icon(
-                                Icons.arrow_forward,
-                                color: Colors.white,
-                              )
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(Colors.black)
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                       SizedBox(height:10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Column(
                         children:  [
-                          TextButton(
-                              onPressed:() {
-                                Navigator.pushNamed(context, 'register');
-                              },
-                              child: Text("Sign up",style: TextStyle(
+                        Text("Forgot password?",style: TextStyle(
                                 color: Colors.black,
-                                  decoration: TextDecoration.underline
-                              ),),),
-                          TextButton(
-                            onPressed: (){},
-                              child: Text("Forgot password?",style: TextStyle(
-                                  color: Colors.black,
-                                  decoration: TextDecoration.underline
-                              ),),),
-
+                                fontWeight: FontWeight.normal
+                            ),),
+                          Text("Sign up",style: TextStyle(
+                                color: Colors.black,
+                                  fontWeight: FontWeight.normal
+                              ),),
                         ],
                       )
                     ],

@@ -11,22 +11,18 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/register.png'),fit: BoxFit.cover),),
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+        ),
         body: Stack(
           children: [
-            Container(
-                padding: EdgeInsets.only( left: 33,top: 120),
-                child:
-                Text('Create an\nAccount', style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18
-                ),)
-
-            ),
             InputData(context)
-
           ],
         ),
       ),
@@ -35,80 +31,101 @@ class _RegisterState extends State<Register> {
 
   SingleChildScrollView InputData(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.5,left: 20,right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                  hintText: 'Please enter your email',
-                  fillColor: Colors.grey.shade100,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )
-              ),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                  hintText: 'Please enter your password',
-                  fillColor: Colors.grey.shade100,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )
-              ),
-            ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children:  [
-                Text("Sign In",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w700
-                  ),
-                ),
-                CircleAvatar(
-                  radius: 30,
-                  backgroundColor: Color(0xff4c9078),
-                  child: IconButton(
-                      onPressed:() {},
-                      icon: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(top: 60,left: 20,right: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Create new \nAccount",style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 33,
+                    fontWeight: FontWeight.w700
+                )),
+                Text("Already account? Login here.",style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.normal
+                )),
+                SizedBox(height: 10),
+
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: 'Laxmi kant',
+                      fillColor: Colors.grey.shade200,
+                      filled: true,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15),
                       )
                   ),
-                )
+                ),
+                SizedBox(height: 10),
+                TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                      hintText: 'laxmipalkant01@gmail.com',
+                      fillColor: Colors.grey.shade200,
+                      filled: true,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15),
+                      )
+                  ),
+                ),
+                SizedBox(height: 10),
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      hintText: '*********',
+                      fillColor: Colors.grey.shade200,
+                      filled: true,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15),
+                      )
+                  ),
+                ),
+                SizedBox(height: 10),
+                TextField(
+                  decoration: InputDecoration(
+                      hintText: 'Date of birth',
+                      fillColor: Colors.grey.shade200,
+                      filled: true,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15),
+                      )
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.only(top: 10,left: 20,right: 20),
+                  child: Column(
+                    children:  [
+                        TextButton(onPressed: (){
+                          Navigator.pushNamed(context, 'home');
+                        }, child: Text("Sign Up",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700
+                          ),
+                        ),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.black)
+                  ),
+                ),
+
+                    ],
+                  ),
+
+                ),
               ],
             ),
-            SizedBox(height:10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children:  [
-                TextButton(
-                  onPressed:() {
-                    Navigator.pushNamed(context, 'register');
-                  },
-                  child: Text("Sign up",style: TextStyle(
-                      color: Colors.black,
-                      decoration: TextDecoration.underline
-                  ),),),
-                TextButton(
-                  onPressed: (){},
-                  child: Text("Forgot password?",style: TextStyle(
-                      color: Colors.black,
-                      decoration: TextDecoration.underline
-                  ),),),
-
-              ],
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
