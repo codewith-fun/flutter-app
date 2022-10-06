@@ -89,3 +89,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  # for web deply i need to one thing " flutter build web  "
+  # for run the web build " python -m http.server 8000 "
