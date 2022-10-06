@@ -12,8 +12,10 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/register.png'),fit: BoxFit.cover),),
+        image: DecorationImage(
+          image: AssetImage('assets/register.png'),fit: BoxFit.cover,
+        )
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -29,39 +31,41 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  SingleChildScrollView InputData(BuildContext context) {
+  SingleChildScrollView InputData(BuildContext context){
     return SingleChildScrollView(
       child: Column(
         children: [
           Container(
             padding: EdgeInsets.only(top: 60,left: 20,right: 20),
+            alignment: Alignment.center,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("Create new \nAccount",style: TextStyle(
+                Text("Create new\n  account",style: TextStyle(
                     color: Colors.black,
                     fontSize: 33,
                     fontWeight: FontWeight.w700
-                )),
-                Text("Already account? Login here.",style: TextStyle(
+                ),
+                ),
+                Text("Already account ? Login here",style: TextStyle(
                     color: Colors.black,
                     fontSize: 13,
                     fontWeight: FontWeight.normal
-                )),
-                SizedBox(height: 10),
-
+                ),
+                ),
+                SizedBox(height: 10,),
                 TextField(
                   decoration: InputDecoration(
                       hintText: 'Laxmi kant',
                       fillColor: Colors.grey.shade200,
                       filled: true,
                       border: UnderlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15)
                       )
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10,),
                 TextField(
                   obscureText: false,
                   decoration: InputDecoration(
@@ -69,62 +73,60 @@ class _RegisterState extends State<Register> {
                       fillColor: Colors.grey.shade200,
                       filled: true,
                       border: UnderlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15)
                       )
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10,),
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
-                      hintText: '*********',
+                      hintText: '********',
                       fillColor: Colors.grey.shade200,
                       filled: true,
                       border: UnderlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15)
                       )
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 10,),
                 TextField(
+                  obscureText: true,
                   decoration: InputDecoration(
                       hintText: 'Date of birth',
                       fillColor: Colors.grey.shade200,
                       filled: true,
                       border: UnderlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15)
                       )
                   ),
                 ),
-                SizedBox(height: 10),
-                Container(
-                  padding: EdgeInsets.only(top: 10,left: 20,right: 20),
-                  child: Column(
-                    children:  [
-                        TextButton(onPressed: (){
-                          Navigator.pushNamed(context, 'home');
-                        }, child: Text("Sign Up",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700
-                          ),
-                        ),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black)
-                  ),
-                ),
+                SizedBox(height: 10,),
+                Column(
+                  children: [
+                    TextButton(
+                      onPressed: (){
+                        Navigator.pushNamed(context, 'home');
+                      },
+                      child: Text('Sign Up',style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700
+                      ),
+                      ),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.black)
+                      ),
+                    ),
 
-                    ],
-                  ),
-
+                  ],
                 ),
               ],
             ),
-          ),
+          )
         ],
       ),
     );

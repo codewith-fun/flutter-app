@@ -9,11 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       initialRoute: 'home',
-      color: Colors.amberAccent,
       routes: {
-         'home':(context)=> Login(),
+        'home':(context)=> Login(),
         'register':(context)=> Register()
       },
     );
